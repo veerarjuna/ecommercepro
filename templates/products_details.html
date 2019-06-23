@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load tmp_filters %}
+<body>
+{% block content %}
+<h1 align="center"> Django Ecommerce Application </h1>
+
+<table border="2px solid black" align="center">
+
+    <th>Store ID</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>Category</th>
+    <th>Expiry Date</th>
+    <th>Reviews</th>
+    <th>Ratings</th>
+    <th>Return Policy</th>
+
+{% for data in products_data %}
+    <tr>
+        <td> {{ data.store_id }} </td>
+        <td> {{ data.name }} </td>
+        <td> {{ data.price |add:20 }} </td>
+        <td> {{ data.quantity }} </td>
+        <td> {{ data.category }} </td>
+        <td> {{ data.exp_date }} </td>
+        <td> {{ data.reviews }} </td>
+        <td> {{ data.ratings | convert_digit_to_word}} </td>
+        <td> {{ data.return_policy }} </td>
+    </tr>
+
+{% endfor %}
+
+</table>
+{% endblock content %}
+</body>

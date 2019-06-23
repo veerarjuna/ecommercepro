@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<body>
+    <h1 style="font-size:60px;" align="center">Create Store Form</h1>
+    <p align="center"> Add new store details.</p>
+    <div align="center">
+    <form method="POST">
+        {% csrf_token %} {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+    </div>
+</body>
+{% endblock %}
